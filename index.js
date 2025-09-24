@@ -18,7 +18,7 @@ mongoose.connect(Mongo, {})
     .catch(err => console.error('MongoDB connection error:', err));
 
 // --- Define Routes ---
-app.use('/api/auth', require('./routes/auth'));
+//app.use('/api/auth', require('./routes/auth'));
 app.use('/api/game', require('./routes/game')); 
 
 app.get('/', (req, res) => {
