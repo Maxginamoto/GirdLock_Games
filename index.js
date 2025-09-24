@@ -1,10 +1,9 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-const Mongo = process.env.MONGO_URI;
-const no = process.env.NODE_ENV;
+const Mongo = "mongodb+srv://MKUltra:Max2103@games.6kcxrz3.mongodb.net/?retryWrites=true&w=majority&appName=Games" ;
+const no = 'production';
 const app = express();
 const PORT = 5000;
 
@@ -21,10 +20,7 @@ mongoose.connect(Mongo, {})
 //app.use('/api/auth', require('./routes/auth'));
 app.use('/api/game', require('./routes/game')); 
 
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
-if (no=== 'production') {
+if (no === 'production') {
     // Set static folder
     app.use(express.static('./client/build'));
 
