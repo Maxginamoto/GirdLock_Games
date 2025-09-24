@@ -1,0 +1,39 @@
+.snake-game-board {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
+    border: 3px solid white;
+    position: relative;
+    background-color: #0c0c0c;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+}
+
+.snake {
+    background-color: #39ff14; /* Neon green */
+    border-radius: 3px;
+}
+
+.food {
+    background-color: #ff073a; /* Neon red */
+    border-radius: 50%;
+}
+
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+}

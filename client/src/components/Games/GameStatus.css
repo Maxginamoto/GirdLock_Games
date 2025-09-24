@@ -1,0 +1,37 @@
+/* client/src/components/GameStatus.css */
+.game-status-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.player-info {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.player-info.active-player {
+  border-color: #ffdd00;
+  transform: scale(1.1);
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.player-name {
+  font-weight: bold;
+}
+
+.player-role {
+  margin-left: 5px;
+}
+
+.you-indicator {
+  font-style: italic;
+  margin-left: 5px;
+  color: #ccc;
+}

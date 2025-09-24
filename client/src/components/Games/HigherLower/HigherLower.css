@@ -1,0 +1,51 @@
+.higher-lower-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1.2rem;
+}
+
+.game-cards {
+    margin: 20px 0;
+}
+
+.card {
+    width: 180px;
+    height: 120px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.guess-card {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.guess-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.number-card.game-over {
+    color: #ff4d4d; /* Red color for game over */
+    border-color: #ff4d4d;
+}
+
+.result-message {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}

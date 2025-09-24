@@ -1,0 +1,59 @@
+.ludo-setup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.setup-option {
+    margin-bottom: 20px;
+    width: 80%;
+}
+.setup-option label {
+    font-size: 1.2rem;
+}
+.setup-option input[type="range"] {
+    width: 100%;
+}
+
+.player-configs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.player-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.player-card h3 {
+    margin: 0;
+    text-align: left;
+}
+
+.player-card input[type="text"],
+.player-card select {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.token-select label {
+    display: block;
+    margin-bottom: 5px;
+}

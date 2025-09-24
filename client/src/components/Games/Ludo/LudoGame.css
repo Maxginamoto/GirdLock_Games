@@ -1,0 +1,147 @@
+.ludo-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ludo-board {
+    width: 600px; /* 15 tiles * 40px */
+    height: 600px;
+    background-color: #fdfdfd;
+    border: 3px solid #333;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    position: relative; /* Needed for positioning tokens and yards */
+}
+
+/* --- Quadrant / Yard Styling --- */
+.yard {
+    width: calc(6 * 100% / 15); /* 6 columns wide */
+    height: calc(6 * 100% / 15); /* 6 rows high */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.yard::before { /* Inner white box */
+    content: '';
+    width: 66.66%;
+    height: 66.66%;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+.yard.red { background-color: #ffcccc; top: 0; left: 0; }
+.yard.green { background-color: #ccffcc; top: 0; right: 0; }
+.yard.blue { background-color: #ccccff; bottom: 0; right: 0; }
+.yard.yellow { background-color: #ffffcc; bottom: 0; left: 0; }
+
+/* --- Center Home Triangle Area --- */
+.center-home {
+    grid-column: 7 / 10;
+    grid-row: 7 / 10;
+    position: relative;
+    background-color: white;
+}
+/* Triangles pointing to the center */
+.center-home::before, .center-home::after, .home-triangle-red, .home-triangle-blue {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.center-home::before { /* Green */
+    border-width: 0 120px 120px 120px;
+    border-color: transparent transparent #99ff99 transparent;
+    top: -2px; left: -60px;
+}
+.center-home::after { /* Yellow */
+    border-width: 120px 120px 0 120px;
+    border-color: #ffff99 transparent transparent transparent;
+    bottom: -2px; left: -60px;
+}
+.home-triangle-red {
+    border-width: 120px 120px 120px 0;
+    border-color: transparent #ffcccc transparent transparent;
+    top: -60px; left: -2px;
+}
+.home-triangle-blue {
+    border-width: 120px 0 120px 120px;
+    border-color: transparent transparent transparent #ccccff;
+    top: -60px; right: -2px;
+}
+
+
+/* --- Path Tile Styling --- */
+.tile {
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    position: absolute;
+    width: calc(100% / 15);
+    height: calc(100% / 15);
+}
+
+.tile.red-path { background-color: #ffcccc; }
+.tile.green-path { background-color: #ccffcc; }
+.tile.blue-path { background-color: #ccccff; }
+.tile.yellow-path { background-color: #ffffcc; }
+
+.tile.safe-tile::after {
+    content: '★';
+    font-size: 24px;
+    color: #a88c07;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Token Styling --- */
+.token {
+    width: calc(100% / 15 * 0.8); /* 80% of tile size */
+    height: calc(100% / 15 * 0.8);
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: calc(var(--x) * 40px + 20px);
+    top: calc(var(--y) * 40px + 20px);
+    transform: translate(-50%, -50%);
+    transition: top 0.18s ease-in-out, left 0.18s ease-in-out;
+    z-index: 10;
+}
+.token.movable {
+    box-shadow: 0 0 15px 5px #fff;
+    cursor: pointer;
+}
+
+/* --- Game Controls Styling --- */
+.game-controls {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-turn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.winner-announcement {
+    text-align: center;
+}
