@@ -91,7 +91,7 @@ const SnakeGame = () => {
 
             // Food collision
             if (head.x === food.x && head.y === food.y) {
-                setScore(prev => prev + 0.5);
+                setScore(prev => prev + 1);
                 setSpeed(prev => Math.max(50, prev * 0.95)); // Increase speed
                 generateFood();
             } else {
